@@ -34,14 +34,22 @@
                 <td th:text="${c.getApplicationDate()}"></td>
                 <td th:text="${c.getStatus()}"></td>
                 <td>Resume</td>
+                <td th:text="${c.getJobInterviews().size()}"></td>
                 <td>
-                    <form th:action="@{/appointmentsList/{candidateId}(candidateId=${c.getId()})}" method="get">
-                        <button type="submit">Detail</button>
-                    </form>
+                <form th:action="@{/appointmentsList/{candidateId}(candidateId=${c.getId()})}" method="get">
+                    <button type="submit">Detail</button>
+                </form>
+            </td>
+                <td>
                     <form th:action="@{/jobInterviewForm/{candidateId}(candidateId=${c.getId()})}" method="get">
                         <button type="submit">Add appointment</button>
                     </form>
                 </td>
+
+
+
+
+
             </tr>
             </tbody>
         </table>

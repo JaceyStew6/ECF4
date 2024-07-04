@@ -27,6 +27,7 @@ public class CandidateService implements IService<Candidate> {
 
     @Override
     public Candidate add(Candidate element) {
+        //TODO mettre garde fou pour empêcher la création du même profil plusieurs fois
         element.setApplicationDate(LocalDateTime.now());
         element.setStatus("New");
         return candidateRepository.save(element);
