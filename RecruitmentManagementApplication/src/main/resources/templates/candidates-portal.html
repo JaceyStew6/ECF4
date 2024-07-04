@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Candidates Portal</title>
+  <span th:replace="~{home :: bootstrapImport}"></span>
+</head>
+<body>
+<span th:replace="~{home :: navbar}"></span>
+<main class="container">
+  <h1>Candidates Portal</h1>
+
+  <div class="container mt-4">
+    <h2>Job offers</h2>
+    <table class="table table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th>Title</th>
+        <th>Contract</th>
+        <th>Creation Date</th>
+        <th>Status</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="j : ${joboffers}">
+
+        <td th:text="${j.getJobTitle()}"></td>
+        <td th:text="${j.getContractType()}"></td>
+        <td th:text="${j.getCreatedAt()}"></td>
+        <td th:text="${j.getStatus()}"></td>
+        <td th:text="${j.getDescription()}"></td>
+        <td>
+          <form th:action="@{/candidateForm/{jobOfferId}(jobOfferId=${j.getId()})}" method="get">
+            <button type="submit">Apply</button>
+          </form>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+</main>
+</body>
+</html>

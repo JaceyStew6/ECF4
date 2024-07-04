@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Candidates</title>
+    <span th:replace="~{home :: bootstrapImport}"></span>
+</head>
+<body>
+<span th:replace="~{home :: navbar}"></span>
+<main class="container">
+    <h1>Candidates</h1>
+
+    <div class="container mt-4">
+        <table class="table table-striped">
+            <thead class="thead-dark">
+            <tr>
+                <th>Lastname</th>
+                <th>Firstname</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>Application Date</th>
+                <th>Status</th>
+                <th>Resume</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="c : ${candidates}">
+
+                <td th:text="${c.getLastname()}"></td>
+                <td th:text="${c.getFirstname()}"></td>
+                <td th:text="${c.getPhoneNumber()}"></td>
+                <td th:text="${c.getEmail()}"></td>
+                <td th:text="${c.getApplicationDate()}"></td>
+                <td th:text="${c.getStatus()}"></td>
+                <td>Resume</td>
+                <td>
+<!--                    <form th:action="@{/candidateForm/{jobOfferId}(jobOfferId=${j.getId()})}" method="get">
+                        <button type="submit">Update</button>
+                    </form>-->
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</main>
+</body>
+</html>

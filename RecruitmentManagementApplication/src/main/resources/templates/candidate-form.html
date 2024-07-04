@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Apply</title>
+    <span th:replace="~{home :: bootstrapImport}"></span>
+</head>
+<body>
+<span th:replace="~{home :: navbar}"></span>
+<div class="container mt-4">
+    <h1 class="mb-4">Apply</h1>
+    <form th:action="@{/addApplication/{jobOfferId}(jobOfferId=${jobOfferId})}" th:object="${candidate}" method="post">
+        <input th:field="*{id}" type="hidden">
+        <div class="form-group">
+            <label for="lastname">Lastname</label>
+            <input type="text" id="lastname" th:field="*{lastname}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="firstname">Firstname</label>
+            <input type="text" id="firstname" th:field="*{firstname}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="phoneNumber">Phone Number</label>
+            <input type="text" id="phoneNumber" th:field="*{phoneNumber}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" th:field="*{email}" class="form-control">
+        </div>
+
+
+        <button type="submit" class="btn btn-primary mt-4">Apply</button>
+    </form>
+</div>
+</body>
+</html>
