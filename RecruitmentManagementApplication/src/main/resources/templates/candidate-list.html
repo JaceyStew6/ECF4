@@ -21,7 +21,7 @@
                 <th>Application Date</th>
                 <th>Status</th>
                 <th>Resume</th>
-                <th>Actions</th>
+                <th>Job Interviews</th>
             </tr>
             </thead>
             <tbody>
@@ -35,9 +35,12 @@
                 <td th:text="${c.getStatus()}"></td>
                 <td>Resume</td>
                 <td>
-<!--                    <form th:action="@{/candidateForm/{jobOfferId}(jobOfferId=${j.getId()})}" method="get">
-                        <button type="submit">Update</button>
-                    </form>-->
+                    <form th:action="@{/appointmentsList/{candidateId}(candidateId=${c.getId()})}" method="get">
+                        <button type="submit">Detail</button>
+                    </form>
+                    <form th:action="@{/jobInterviewForm/{candidateId}(candidateId=${c.getId()})}" method="get">
+                        <button type="submit">Add appointment</button>
+                    </form>
                 </td>
             </tr>
             </tbody>

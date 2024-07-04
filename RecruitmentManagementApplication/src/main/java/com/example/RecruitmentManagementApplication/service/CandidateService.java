@@ -15,7 +15,6 @@ public class CandidateService implements IService<Candidate> {
         this.candidateRepository = candidateRepository;
     }
 
-
     @Override
     public List<Candidate> getAll() {
         return candidateRepository.findAll();

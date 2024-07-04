@@ -21,6 +21,8 @@ public class JobInterview {
     private int id;
     private String type; //TODO change for ENUM
     private LocalDate appointmentDate;
+    //TODO add hour
+    //TODO add details
 
     @ManyToOne
     @JoinColumn(name = "candidate_id")
