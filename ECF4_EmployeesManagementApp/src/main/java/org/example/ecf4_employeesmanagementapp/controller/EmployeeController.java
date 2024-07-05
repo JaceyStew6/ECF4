@@ -39,27 +39,3 @@ public class EmployeeController {
 
 
 }
-/*  //UPDATE
-    @POST
-    @Path("/update/{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Car updateCar(@PathParam("id") int id, @QueryParam("brand") String brand, @QueryParam("manufacturingYear") String manufacturingYear, @QueryParam("color") String color){
-        for (Car car : FakeDB.cars) {
-            if (car.getId() == id) {
-                car.setBrand(brand);
-                car.setManufacturingYear(manufacturingYear);
-                car.setColor(color);
-                return car;
-            }
-        }
-        throw new NotFoundException("Car with ID " + id + " not found");
-    }
-
-    // DELETE BY INDEX
-    @DELETE
-    @Path("{id}")
-    public int delete(@PathParam("id") int id){
-        FakeDB.cars.remove(id-1);
-        return id;
-    }
-}*/
