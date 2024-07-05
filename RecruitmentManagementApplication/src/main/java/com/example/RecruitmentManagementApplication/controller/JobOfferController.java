@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -37,25 +38,3 @@ public class JobOfferController {
     //TODO add updateOfferStatus and Delete
 
 }
-
-/*
-
-@GetMapping("/post/edit/{id}")
-public String editPost(@PathVariable Long id, Model model) {
-    if (authService.isLogged()) {
-        model.addAttribute("post", postService.getById(id));
-        return "post-form";
-    } else {
-        return "redirect:/login";
-    }
-}
-
-@GetMapping("/post/delete/{id}")
-public String deletePost(@PathVariable Long id) {
-    if (authService.isLogged()) {
-        postService.delete(id);
-        return "redirect:/";
-    } else {
-        return "redirect:/login";
-    }
-}*/

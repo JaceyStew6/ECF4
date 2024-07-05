@@ -1,6 +1,7 @@
 package com.example.RecruitmentManagementApplication.controller;
 
 import com.example.RecruitmentManagementApplication.entities.Candidate;
+import com.example.RecruitmentManagementApplication.entities.JobOffer;
 import com.example.RecruitmentManagementApplication.service.CandidateService;
 import com.example.RecruitmentManagementApplication.service.JobOfferService;
 import org.springframework.stereotype.Controller;
@@ -36,8 +37,13 @@ public class CandidateController {
 
     @PostMapping("/addApplication/{jobOfferId}")
     public String addApplication(@PathVariable int jobOfferId, @ModelAttribute("candidate") Candidate candidate){
-        candidate.setJobOffer(jobOfferService.getById(jobOfferId));
-        candidateService.add(candidate);
+        if (candidate.getEmail() != null){
+            candidate.setJobOffer(jobOfferService.getById(jobOfferId));
+            candidateService.update(candidate);
+        }else {
+            candidate.setJobOffer(jobOfferService.getById(jobOfferId));
+            candidateService.add(candidate);
+        }
         return "redirect:/candidatesPortal";
     }
 
